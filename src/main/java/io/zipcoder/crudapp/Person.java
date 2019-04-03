@@ -12,12 +12,10 @@ public class Person {
     private String firstName;
     private String lastName;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     public Person(){
-
     }
 
     public Person(String firstName, String lastName) {
@@ -25,6 +23,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public Person(String firstName, String lastName, int id) {
+        this(firstName, lastName);
+        this.id = id;
+    }
 
     public int getId() {
         return id;

@@ -1,0 +1,289 @@
+{
+	"info": {
+		"_postman_id": "a12392e2-0381-4bef-9545-37ff41c4bb59",
+		"name": "PersonController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Person Cara",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Cara\",\n\t\"lastName\":\"Eppes\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Davis",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Davis\",\n\t\"lastName\":\"Perchik\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person Sean",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Sean\",\n\t\"lastName\":\"Rowan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all people",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Sean\",\n\t\"lastName\":\"Rowan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get person id #1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Sean\",\n\t\"lastName\":\"Rowan\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Cara to Khaleesi",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Khaleesi\",\n\t\"lastName\":\"Eppes\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Updates person id #4 / Create Jim",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Jim\",\n\t\"lastName\":\"Coates\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						"4"
+					]
+				},
+				"description": "id #4 is null, so put creates a new person with id 4"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Sean (id #3)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Jim\",\n\t\"lastName\":\"Coates\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all people",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\":\"Jim\",\n\t\"lastName\":\"Coates\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/people/",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

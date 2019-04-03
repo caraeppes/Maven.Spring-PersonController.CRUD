@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
@@ -31,7 +33,7 @@ public class PersonControllerTest {
         int givenId = 0;
         BDDMockito
                 .given(repository.findOne(givenId))
-                .willReturn(new Person("Cara", "Eppes"));
+                .willReturn(new Person("Cara", "Eppes", givenId));
 
         String expectedContent = "{\"firstName\":\"Cara\",\"lastName\":\"Eppes\",\"id\":0}";
         this.mvc.perform(MockMvcRequestBuilders
@@ -42,7 +44,7 @@ public class PersonControllerTest {
 
     @Test
     public void testCreatePerson() throws Exception {
-        Person person = new Person("Cara", "Eppes");
+        Person person = new Person("Cara", "Eppes", 0);
 
         BDDMockito
                 .given(repository.save(person))
@@ -58,4 +60,22 @@ public class PersonControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.content().string(expectedContent));
     }
+
+    @Test
+    public void testGetPersonList() throws Exception {
+        List<Person> expectedList = new ArrayList<>();
+        expectedList.add(new Person("Cara", "Eppes", 0));
+        expectedList.add(new Person("Bradley", "Cooper", 1));
+        BDDMockito
+                .given(repository.findAll())
+                .willReturn(expectedList);
+
+        String expectedContent = "[{\"firstName\":\"Cara\",\"lastName\":\"Eppes\",\"id\":0}" +
+                ",{\"firstName\":\"Bradley\",\"lastName\":\"Cooper\",\"id\":1}]";
+        this.mvc.perform(MockMvcRequestBuilders
+                .get("/people/"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(expectedContent));
+    }
+
 }
